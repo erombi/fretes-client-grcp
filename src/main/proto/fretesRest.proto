@@ -11,6 +11,7 @@ service FreteService {
 
   rpc calculaFrete(CalculaFreteRequest) returns (CalculaFreteResponse) {}
 
+  rpc retornaFretes(SemParametros) returns (ListaFreteResponse) {}
 }
 
 message CalculaFreteRequest {
@@ -21,3 +22,14 @@ message CalculaFreteResponse {
   string cep = 1;
   double valor = 2;
 }
+
+message ErroDetails {
+  int32 code = 1;
+  string message = 2;
+}
+
+message ListaFreteResponse {
+  repeated CalculaFreteResponse fretes = 1;
+}
+
+message SemParametros {}
